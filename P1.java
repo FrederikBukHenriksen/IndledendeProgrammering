@@ -13,9 +13,10 @@ public class P1 {
     }
 
     public static boolean check (String number) {
-        String[] lolcat = number.split("");                                                     //Turn string into an array
 
-        int[] array_new = ReverseStringToArray(lolcat);
+        int[] array_new = ReverseStringToIntArray(number);
+
+        
         for (int i = 1; i < array_new.length; i=i+2){
             array_new[i]=array_new[i]*2;
             if (array_new[i]>= 10){
@@ -33,11 +34,16 @@ public class P1 {
         }
     }
 
-    public static int[] ReverseStringToArray(String[] input){
-        int[] bufferArray = new int [input.length];
-        for (int i = 0; i < input.length; i++){
-            bufferArray[(input.length-1)-i] = Integer.parseInt(input[i]);
+    public static int[] ReverseStringToIntArray(String input){
+        //Convert string to string array
+        String[] stringArray = input.split("");
+
+        //Parse characters one-by-one to int in reverse order.
+        int[] intArray = new int [stringArray.length];
+        for (int i = 0; i < stringArray.length; i++){
+            intArray[(stringArray.length-1)-i] = Integer.parseInt(stringArray[i]);
         }
-        return bufferArray;
+        return intArray;
     }
+
 }
