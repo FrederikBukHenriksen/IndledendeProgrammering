@@ -3,7 +3,9 @@ Variationer:
 Hvad nu hvis der ingen tal er?
 Tal kan være negative.
 Der står i opgaven, at det er decimal digits, så det er vel også kommatal
+test af commits
 */
+
 
 public class P1 {
     public static void main(String[] args) {
