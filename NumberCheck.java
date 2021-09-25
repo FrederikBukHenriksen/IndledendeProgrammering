@@ -7,26 +7,37 @@ test af commits
 */
 
 
-public class P1 {
+public class NumberCheck {
     public static void main(String[] args) {
         System.out.print(check("3475"));
+        // System.out.print(check(""));
     }
 
     public static boolean check (String number) {
-
         int[] array_new = ReverseStringToIntArray(number);
+        return checkProcedure(array_new);
+    }
 
-        
-        for (int i = 1; i < array_new.length; i=i+2){
-            array_new[i]=array_new[i]*2;
-            if (array_new[i]>= 10){
-                array_new[i] = (array_new[i]%10)+1;
+
+
+    public static boolean checkProcedure(int[] input){
+        //Double every digit
+        for (int i = 1; i < input.length; i=i+2){
+            input[i]=input[i]*2;
+            
+            //If 10 or greater, replace digit with its mod 10 plus 1
+            if (input[i]>= 10){
+                input[i] = (input[i]%10)+1;
             }
         }
+
+        //Convert array to int
         int crossSum = 0;
-        for (int i = 0; i < array_new.length; i++){
-            crossSum += array_new[i];
+        for (int i = 0; i < input.length; i++){
+            crossSum += input[i];
         }
+
+        //Check if cross sum mod 10 is correct.
         if (crossSum%10 == 0){
             return true;
         }else{
