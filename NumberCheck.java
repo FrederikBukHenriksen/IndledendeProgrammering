@@ -1,8 +1,7 @@
 public class NumberCheck {
 
     public static boolean check (String number) {
-        int[] array_new = ReverseStringToIntArray(number);
-        return checkProcedure(array_new);
+        return checkProcedure(ReverseStringToIntArray(number));
     }
 
     public static boolean checkProcedure(int[] input){
