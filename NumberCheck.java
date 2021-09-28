@@ -1,3 +1,5 @@
+// test af git terminal.
+
 public class NumberCheck {
 
     public static boolean check (String number) {
