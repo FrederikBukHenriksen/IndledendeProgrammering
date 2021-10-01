@@ -2,7 +2,7 @@ public class IntervalSearch_v2 {
     public static void main(String[] args) {
        // System.out.print(intervalContains(1, 11, 3));
      //  System.out.print(powerOf(3,2));
-       System.out.print(intervalContains(3, 11, 3));
+       System.out.print(intervalContains(3, 4, 3));
 
         
     }    
@@ -15,6 +15,7 @@ public class IntervalSearch_v2 {
             while (g1 >= b && b <= g2) {
                 b = powerOf(b, i);
                 System.out.println(b);
+
                 if (b > g2) {
                     System.out.println("Could not find a integer with power >= 1 wihtin the range");
                     return false; 
