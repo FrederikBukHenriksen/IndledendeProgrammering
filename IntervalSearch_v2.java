@@ -12,16 +12,16 @@ public class IntervalSearch_v2 {
         if (g1 >= 1 && g2 >= 1 && b <= g2) { // lidt i tivl om 1 må tælle med.  
             
             int i = 1;
-            while (g1 >= b && b <= g2) {
+            while (g1 >= b && b <= g2) { // hvis g1 >= b til at starte med, virker det ikke. 
                 b = powerOf(b, i);
                 System.out.println(b);
 
-                if (b > g2) {
-                    System.out.println("Could not find a integer with power >= 1 wihtin the range");
-                    return false; 
-                }
+                    if (b > g2) {
+                        System.out.println("Could not find a integer with power >= 1 wihtin the range");
+                        return false; 
+                    }
                 i++;
-                } 
+            } 
             System.out.print("outside loop " + b);
             return true; // (g1 <= b && b <= g2)
         }
