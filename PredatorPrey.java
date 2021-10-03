@@ -3,12 +3,10 @@ import java.util.Random; //Random
 import java.util.Arrays;
 import java.util.ArrayList;
 
-
-
 public class PredatorPrey {
 
     public static void main(String[] args) {
-        runSimulation(10, 2, 100);
+        runSimulation(20, 2, 100);
     }
 
     public static void runSimulation(int n, int s, int t) {
