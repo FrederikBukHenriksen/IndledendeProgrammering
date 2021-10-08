@@ -107,7 +107,7 @@ public class PredatorPrayTeleport {
         //Check whether the prey's position is divisible.
         if ((prey.x % s == 0) && (prey.y % s == 0)) {
             //Set a random position for the prey
-            prey.setLocation(random.nextInt(n), random.nextInt(n));
+            prey.setLocation(random.nextInt(n)+1, random.nextInt(n)+1);
         }
     }
 
