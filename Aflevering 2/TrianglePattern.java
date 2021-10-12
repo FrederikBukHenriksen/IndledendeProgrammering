@@ -1,0 +1,7 @@
+Fremgangsmåde
+
+
+public class TrianglePattern {
+
+    
+}
