@@ -1,5 +1,5 @@
-abcd abc abcd wert
+ABCD abc abcd wert
 der der der der
 dtu dut udt 
-lyng lang lang lyng 
-lundtofte lundtofte tofte
+lyng lang lang lyng
+Lundtofte lundtofte tofte
