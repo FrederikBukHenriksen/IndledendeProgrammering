@@ -30,7 +30,7 @@ public class TextAnalysis {
 
     // Method: Print the text as an Array.
     public void printText() {
-        String[] tempTokens = tokens(); // make a temporaily array which we can modify. rom the tokens array.
+        String[] tempTokens = tokens(); // make a temporaily array which we can modify. run the tokens array.
 
         for (int i = 0; i < tempTokens.length; i++) {
             System.out.println(tempTokens[i]);
@@ -66,43 +66,63 @@ public class TextAnalysis {
 
         String[] tempTokens = tokens(); // temporaily array
 
-        for (int i = 0; i < tempTokens.length - 1; i++) { // outer for loop. We minus tempTokens.length with - 1 becasue
-                                                          // j starts with i + 1. Otherwise we would get out of bounds
-                                                          // error.
-            int j = i + 1;
-            while (j < tempTokens.length) { // inner while loop
-                if (tempTokens[i].equals(tempTokens[j])) { // we remove the first word in the sequence to avoid it gets
-                                                           // counted again.
-                    count++;
-                }
-                tempTokens[i] = "";
-                j++;
+        int i = 0;
+        int j = i + 1;
+        while (j < tempTokens.length) { // inner while loop
+            if (tempTokens[i].equals(tempTokens[j])) { // we remove the first word in the sequence to avoid it gets
+                                                       // counted again.
+                count++;
             }
+            tempTokens[i] = "";
+            j++;
+            i++;
         }
+        // }
         return count; // returns the number of immediate repetitions as an integer.
     }
 
     // Method: GetNoOfRepetitions()
-    public int getNoOfDuplicates() {
-        int count = 0; // count starts at 0.
-        String[] tempTokens = tokens(); // make a temp array.
-        for (int i = 0; i < tempTokens.length; i++) { // outer loop
-            for (int j = i + 1; j < tempTokens.length; j++) { // inner loop
-                if (tempTokens[i].equals(tempTokens[j])) {
-                    count++; // increase count by 1 for each match.
-                    tempTokens[i] = ""; // we delete the duplicate word, so it doesn't get counted again.
+    // public int getNoOfDuplicates() {
+    // int count = 0; // count starts at 0.
+    // String[] tempTokens = tokens(); // make a temp array.
+    // for (int i = 0; i < tempTokens.length; i++) { // outer loop
+    // for (int j = i + 1; j < tempTokens.length; j++) { // inner loop
+    // if (tempTokens[i].equals(tempTokens[j])) {
+    // count++; // increase count by 1 for each match.
+    // tempTokens[i] = ""; // we delete the duplicate word, so it doesn't get
+    // counted again.
 
-                }
-            }
-        }
-        return count; // returns the number of dupicates as an integer.
-    }
+    // }
+    // }
+    // }
+    // return count; // returns the number of dupicates as an integer.
+    // }
 
     // Method: Number of different words
 
-    public int getNoOfDifferentWords() { // WordCount - Different words.
-        return this.wordCount() - this.getNoOfDuplicates();
+    // public int getNoOfDifferentWords() { // WordCount - Different words.
+    // return this.wordCount() - this.getNoOfDuplicates();
 
+    // }
+
+    public int getNoOfDifferentWords() {
+        if (readFileAsString().isEmpty()) {
+            return 0;
+        } else {
+
+            String[] tempTokens = tokens(); // make a temp array.
+            List<String> data = new ArrayList<String>();
+            int i = 0;
+            while (tempTokens.length > i) {
+                if (data.contains(tempTokens[i])) {
+
+                } else {
+                    data.add(tempTokens[i]);
+                }
+                i++;
+            }
+            return data.size();
+        }
     }
 
 }
