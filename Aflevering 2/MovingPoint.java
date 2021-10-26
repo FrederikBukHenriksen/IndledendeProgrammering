@@ -50,8 +50,23 @@ public class MovingPoint {
     }
 
     public void move(double duration) {
-        x += Math.cos(direction) * speed * duration;
-        y += Math.sin(direction) * speed * duration;
+        x += Math.cos(Math.toRadians(direction)) * speed * duration;
+        y += Math.sin(Math.toRadians(direction)) * speed * duration;
+    }
+
+    public void turnBy(double angle) {
+        direction += angle;
+        checkDirection();
+    }
+
+    public void accelerateBy(double change) {
+        speed += change;
+        checkSpeed();
+    }
+
+    public String toString() {
+        return ("[" + Double.toString(x) + ";" + Double.toString(y) + "] " + Double.toString(direction) + " "
+                + Double.toString(speed));
     }
 
 }
