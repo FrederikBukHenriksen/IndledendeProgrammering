@@ -2,7 +2,7 @@ import java.lang.Math;
 
 public class MovingPoint {
 
-    // Declaring class specific vairables.
+    // Declaring class fields.
     private double x;
     private double y;
     private double direction;
@@ -18,16 +18,16 @@ public class MovingPoint {
         this.speed = 0;
     }
 
-    // Constructor without arguments.
+    // Constructor with arguments.
     public MovingPoint(double x, double y, double direction, double speed) {
         this.x = x;
         this.y = y;
 
         this.direction = direction;
-        checkDirection();
+        checkDirection(); // Check if the direction is within the defined degrees
 
         this.speed = speed;
-        checkSpeed();
+        checkSpeed(); // Check if speed is within min and max values.
     }
 
     // Set the direction within [0;360[ degrees.
@@ -40,30 +40,42 @@ public class MovingPoint {
 
     // Set the speed within the max and min.
     private void checkSpeed() {
+
+        // Define minimum and maximum speed
         double maxSpeed = 20;
         double minSpeed = 0;
 
+        // Change if it exceeds max speed
         if (speed > maxSpeed)
             speed = maxSpeed;
+
+        // Change if it falls below min speed
         if (speed < minSpeed)
             speed = minSpeed;
     }
 
+    // Calculate the change for each coordinate when moving
     public void move(double duration) {
-        x += Math.cos(Math.toRadians(direction)) * speed * duration;
-        y += Math.sin(Math.toRadians(direction)) * speed * duration;
+
+        // Coordinates are converted from degrees to radians for the functions to work
+        x += Math.cos(Math.toRadians(direction)) * speed * duration; // Cosine value of direction * speed * duration
+        y += Math.sin(Math.toRadians(direction)) * speed * duration; // Sinus value of direction * speed * duration
     }
 
+    // Change the angle
     public void turnBy(double angle) {
-        direction += angle;
-        checkDirection();
+
+        direction += angle; // Add change in angle to existing direction
+        checkDirection(); // Check if the direction is within the defined degrees
     }
 
+    // Change the speed
     public void accelerateBy(double change) {
-        speed += change;
-        checkSpeed();
+        speed += change; // Add change in speed to existing speed
+        checkSpeed(); // Check if speed is within min and max values.
     }
 
+    // Change the default printing of an object
     public String toString() {
         return ("[" + Double.toString(x) + ";" + Double.toString(y) + "] " + Double.toString(direction) + " "
                 + Double.toString(speed));
