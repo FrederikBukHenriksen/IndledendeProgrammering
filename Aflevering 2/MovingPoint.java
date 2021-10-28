@@ -10,12 +10,12 @@ public class MovingPoint {
 
     // Constructor without arguments, but with default values.
     public MovingPoint() {
-        this.x = 0;
-        this.y = 0;
+        x = 0;
+        y = 0;
 
-        this.direction = 90;
+        direction = 90;
 
-        this.speed = 0;
+        speed = 0;
     }
 
     // Constructor without arguments.
@@ -65,8 +65,7 @@ public class MovingPoint {
     }
 
     public String toString() {
-        return ("[" + Double.toString(x) + ";" + Double.toString(y) + "] " + Double.toString(direction) + " "
-                + Double.toString(speed));
+        return ("[" + x + ";" + y + "] " + direction + " " + speed);
     }
 
 }
