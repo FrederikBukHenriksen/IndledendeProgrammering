@@ -19,7 +19,7 @@ public class TextAnalysis {
 
     // Method: Read file as string.
     public String readFileAsString() {
-        String text = "";
+        String text = ""; // default 
         try {
             text = new String(Files.readAllBytes(Paths.get(this.SourceFileName)));
         } catch (IOException e) {
@@ -81,47 +81,25 @@ public class TextAnalysis {
         return count; // returns the number of immediate repetitions as an integer.
     }
 
-    // Method: GetNoOfRepetitions()
-    // public int getNoOfDuplicates() {
-    // int count = 0; // count starts at 0.
-    // String[] tempTokens = tokens(); // make a temp array.
-    // for (int i = 0; i < tempTokens.length; i++) { // outer loop
-    // for (int j = i + 1; j < tempTokens.length; j++) { // inner loop
-    // if (tempTokens[i].equals(tempTokens[j])) {
-    // count++; // increase count by 1 for each match.
-    // tempTokens[i] = ""; // we delete the duplicate word, so it doesn't get
-    // counted again.
 
-    // }
-    // }
-    // }
-    // return count; // returns the number of dupicates as an integer.
-    // }
-
-    // Method: Number of different words
-
-    // public int getNoOfDifferentWords() { // WordCount - Different words.
-    // return this.wordCount() - this.getNoOfDuplicates();
-
-    // }
-
+    // Method geNoOfDifferntWords 
     public int getNoOfDifferentWords() {
-        if (readFileAsString().isEmpty()) {
+        if (readFileAsString().isEmpty()) { // if the file is empty, return 0. 
             return 0;
         } else {
 
             String[] tempTokens = tokens(); // make a temp array.
-            List<String> data = new ArrayList<String>();
+            List<String> data = new ArrayList<String>(); // create a list to add Unique words into. 
             int i = 0;
             while (tempTokens.length > i) {
-                if (data.contains(tempTokens[i])) {
-
+                if (data.contains(tempTokens[i])) { // if the list contains the word in the temp array
+                // Do nothing. 
                 } else {
-                    data.add(tempTokens[i]);
+                    data.add(tempTokens[i]); // Add the word to the list, if it doesn't exsit in temp array
                 }
-                i++;
+                i++; 
             }
-            return data.size();
+            return data.size(); // returns the size (length) of the data list of unique words. 
         }
     }
 
