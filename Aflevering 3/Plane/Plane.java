@@ -28,8 +28,8 @@ public class Plane {
     }
     // denne metode skal sammenligne id nr på to objekter af flyver.
 
-    public boolean equals(Object o) {
-        if (this.id == o.id) {
+    public boolean equals(Object plane) {
+        if (this.id == plane.id) {
             return true;
         } else {
             return false;

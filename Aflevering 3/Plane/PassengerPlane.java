@@ -9,7 +9,6 @@ public class PassengerPlane extends Plane {
     }
 
     public String toString() {
-        return super.toString() + " seats:" + numberOfSeats;
+        return super.toString() + " seats: " + numberOfSeats;
     }
-
 }
