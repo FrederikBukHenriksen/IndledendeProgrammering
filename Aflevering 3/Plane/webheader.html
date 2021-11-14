@@ -1,0 +1,61 @@
+<script>
+	setTimeout(function() {
+		if(window.location.href.indexOf("/dk") > -1) {
+			if(jQuery("#text-7")[0]) {
+				jQuery("p").each(function() {           
+					jQuery(this).html(jQuery(this).html().replace(/Online- och telefonsupport varje dag från 9 till 16./g,"Online og telefonsupport hver dag fra 9 til 16."));
+				});
+			}
+			
+			jQuery(".fusion-footer-widget-area").find('a[href^="/se/om-os/"]').each(function(){ 
+				var oldUrl = jQuery(this).attr("href"); // Get current url
+				var newUrl = oldUrl.replace("/se/om-os/", "/dk/om-os/"); // Create new url
+				jQuery(this).attr("href", newUrl); // Set herf value
+			});
+			jQuery(".fusion-footer-widget-area").find('a[href^="/se/kontakt/"]').each(function(){ 
+				var oldUrl = jQuery(this).attr("href"); // Get current url
+				var newUrl = oldUrl.replace("/se/kontakt/", "/dk/kontakt/"); // Create new url
+				jQuery(this).attr("href", newUrl); // Set herf value
+			});
+			jQuery(".fusion-footer-widget-area").find('a[href^="http://test.orbitvunordic.com/se/kamerakompatibilitet/"]').each(function(){ 
+				jQuery(this).hide();
+			});
+		}
+		if(window.location.href.indexOf("edit=1") > -1) {
+			console.log("fusion builder active");
+		} else {
+			if(jQuery(".book-btn")[0]) {
+				if(window.location.href.indexOf("/no/") > -1) {
+					jQuery(".book-btn").each(function() {
+						var text = jQuery(this).text();
+						text = text.replace("Book demo", "Bestill demo");
+						jQuery(this).text(text);
+					});
+				}
+			}
+
+			if(jQuery(".fusion-button-text")[0]) {
+				if(window.location.href.indexOf("/no/") > -1) {
+					jQuery(".fusion-button-text").each(function() {
+						var text = jQuery(this).text();
+						text = text.replace("Finn ut mer!", "Find ud af mere!");
+						jQuery(this).text(text);
+					});
+				}
+			}
+
+
+			if(jQuery(".fusion-button")[0]) {
+				if(window.location.href.indexOf("/no/") > -1) {
+					jQuery(".fusion-button-text").each(function() {
+						var text = jQuery(this).text();
+						text = text.replace("Kontakta oss", "Kontakt os");
+						jQuery(this).text(text);
+					});
+				}
+			}
+		}
+
+
+	},150);
+</script>
