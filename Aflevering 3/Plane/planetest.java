@@ -2,33 +2,35 @@ package Plane;
 
 public class planetest {
     public static void main(String[] args) {
-        PassengerPlane p2 = new PassengerPlane("Boing", "737", 241);
-        p2.setId(2);
-        FreightPlane p3 = new FreightPlane("Antonov", "124", 110);
-        p3.setId(3);
-        FreightPlane p1 = new FreightPlane("Boing", "747F", 112);
-        p1.setId(1);
-        PassengerPlane p4 = new PassengerPlane("Airbus", "321", 192);
-        p4.setId(4);
-        PassengerPlane p5 = new PassengerPlane("Airbus", "380", 853);
-        p5.setId(5);
-        System.out.println(p1);
-        System.out.println(p2);
-        System.out.println(p3);
-        System.out.println(p4);
-        System.out.println(p5);
-
         Airport cph = new Airport();
+
+        Plane p1 = new Plane("Cessna", "Skyhawk");
+        PassengerPlane p2 = new PassengerPlane("Boing", "737", 241);
+        FreightPlane p3 = new FreightPlane("Antonov", "124", 110);
+        PassengerPlane p4 = new PassengerPlane("Boing", "737", 241);
+        PassengerPlane p5 = new PassengerPlane("Trash", "123", 99);
+        p5.setId(2);
 
         cph.land(p1);
         cph.land(p2);
-
-        cph.toStrings();
-
-        cph.start(1);
+        cph.land(p3);
         cph.land(p4);
+        System.out.println(cph);
 
-        cph.toStrings();
+        cph.land(p5);
+        System.out.println(cph);
+
+        cph.start(2);
+        System.out.println(cph);
+
+        cph.start(0);
+        System.out.println(cph);
+        cph.start(5);
+        System.out.println(cph);
+        cph.start(1);
+        System.out.println(cph);
+        cph.start(3);
+        System.out.println(cph);
 
     }
 
