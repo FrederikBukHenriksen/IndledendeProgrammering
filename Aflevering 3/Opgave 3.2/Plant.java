@@ -6,8 +6,6 @@ import java.util.Random;
 public abstract class Plant {
 	protected Point position;
 	protected Color color;
-	// protected int seed;
-	// protected int range;
 
 	private static Random rand = new Random();
 

@@ -3,10 +3,15 @@ import java.awt.Color;
 
 public class Flower extends Plant {
 
+    int range;
+    int seed;
+
     // public static final Color FLOWER_COLOR =
     // PeberholmConstantsAndUtilities.FLOWER_COLOR;
-    public static final int FLOWER_SEED_NO = PeberholmConstantsAndUtilities.FLOWER_SEED_NO;
-    public static final int FLOWER_RANGE = PeberholmConstantsAndUtilities.FLOWER_RANGE;
+    // public static final int FLOWER_SEED_NO =
+    // PeberholmConstantsAndUtilities.FLOWER_SEED_NO;
+    // public static final int FLOWER_RANGE =
+    // PeberholmConstantsAndUtilities.FLOWER_RANGE;
 
     public Flower(Point position) {
         // super();
@@ -15,8 +20,8 @@ public class Flower extends Plant {
 
         this.position = position;
         this.color = PeberholmConstantsAndUtilities.FLOWER_COLOR;
-        // this.seed = FLOWER_SEED_NO;
-        // this.range = FLOWER_RANGE;
+        seed = PeberholmConstantsAndUtilities.FLOWER_SEED_NO;
+        range = PeberholmConstantsAndUtilities.FLOWER_RANGE;
 
     }
 
