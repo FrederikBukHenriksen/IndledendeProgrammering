@@ -41,7 +41,7 @@ public class PeberholmSimulation {
 				try {
 					Thread.sleep(500L);
 				} catch (Exception e) {
-					// TODO: handle exception
+					fail(e.toString());
 				}
 				drawIsland();
 			}
@@ -163,7 +163,6 @@ public class PeberholmSimulation {
 	 */
 	private void drawIsland() {
 		jf.repaint();
-
 	}
 
 	private static void fail(String error) {

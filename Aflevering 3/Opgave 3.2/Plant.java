@@ -1,38 +1,14 @@
 import java.awt.Color;
 import java.awt.Point;
-import java.awt.Color;
 import java.util.Random;
 
 public abstract class Plant {
 	protected Point position;
 	protected Color color;
 
-	private static Random rand = new Random();
-
-	// public Plant(Point position, final Color color, final int seed, final int
-	// range) {
-	// this.position = position;
-	// this.color = color;
-	// this.seed = seed;
-	// this.range = range;
-	// }
-
-	// public Plant() {
-	// Point nein = new Point(1, 1);
-	// this.position = nein;
-	// }
-
-	// public Plant(Point position) {
-	// this.position = position;
-	// }
+	protected static Random rand = new Random();
 
 	public abstract Plant[] spreadSeeds();
-
-	// public Point newPosition() {
-	// return new Point((rand.nextInt(this.range * 2 + 1) - this.range) +
-	// this.position.x,
-	// (rand.nextInt(this.range * 2 + 1) - this.range) + this.position.y);
-	// }
 
 	public Color getColor() {
 		return color;

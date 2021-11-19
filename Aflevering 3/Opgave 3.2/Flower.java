@@ -1,32 +1,32 @@
 import java.awt.Point;
 import java.awt.Color;
+import java.util.Random;
 
 public class Flower extends Plant {
 
-    int range;
-    int seed;
+    protected static final int range = PeberholmConstantsAndUtilities.FLOWER_RANGE;
+    protected static final int seed = PeberholmConstantsAndUtilities.FLOWER_SEED_NO;
+    protected static final Color col = PeberholmConstantsAndUtilities.FLOWER_COLOR;
 
-    // public static final Color FLOWER_COLOR =
-    // PeberholmConstantsAndUtilities.FLOWER_COLOR;
-    // public static final int FLOWER_SEED_NO =
-    // PeberholmConstantsAndUtilities.FLOWER_SEED_NO;
-    // public static final int FLOWER_RANGE =
-    // PeberholmConstantsAndUtilities.FLOWER_RANGE;
+    private static Random rand = new Random();
 
     public Flower(Point position) {
-        // super();
-
-        // super(position, FLOWER_COLOR, FLOWER_SEED_NO, FLOWER_RANGE);
-
         this.position = position;
-        this.color = PeberholmConstantsAndUtilities.FLOWER_COLOR;
-        seed = PeberholmConstantsAndUtilities.FLOWER_SEED_NO;
-        range = PeberholmConstantsAndUtilities.FLOWER_RANGE;
-
+        this.color = col;
     }
 
     public Plant[] spreadSeeds() {
-        Flower[] lol = { new Flower(newPosition()) };
-        return lol;
+        Plant[] lolcat = new Plant[seed];
+        for (int i = 0; i < seed; i++) {
+            Point newPoint = new Point((rand.nextInt(range * 2 + 1) - range) + this.position.x,
+                    (rand.nextInt(range * 2 + 1) - range) + this.position.y);
+            lolcat[i] = new Flower(newPoint);
+
+        }
+        return lolcat;
+    }
+
+    public String toString() {
+        return "Flower, position [" + position.x + ";" + position.y + "]";
     }
 }

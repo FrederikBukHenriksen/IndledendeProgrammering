@@ -1,30 +1,33 @@
 import java.awt.Point;
 import java.awt.Color;
+import java.util.Random;
 
 public class Moss extends Plant {
 
-    int range;
-    int seed;
+    protected static final int range = PeberholmConstantsAndUtilities.MOSS_RANGE;
+    protected static final int seed = PeberholmConstantsAndUtilities.MOSS_SEED_NO;
+    protected static final Color col = PeberholmConstantsAndUtilities.MOSS_COLOR;
 
-    // public static final Color MOSS_COLOR =
-    // PeberholmConstantsAndUtilities.MOSS_COLOR;
-    // public static final int MOSS_SEED_NO =
-    // PeberholmConstantsAndUtilities.MOSS_SEED_NO;
-    // public static final int MOSS_RANGE =
-    // PeberholmConstantsAndUtilities.MOSS_RANGE;
+    private static Random rand = new Random();
 
     public Moss(Point position) {
-        // super();
-
-        // super(position, MOSS_COLOR, MOSS_SEED_NO, MOSS_RANGE);
         this.position = position;
-        this.color = PeberholmConstantsAndUtilities.MOSS_COLOR;
-        this.seed = PeberholmConstantsAndUtilities.MOSS_SEED_NO;
-        this.range = PeberholmConstantsAndUtilities.MOSS_RANGE;
+        this.color = col;
     }
 
     public Plant[] spreadSeeds() {
-        Moss[] lol = { new Moss(newPosition()) };
-        return lol;
+        Plant[] lolcat = new Plant[seed];
+        for (int i = 0; i < seed; i++) {
+            Point newPoint = new Point((rand.nextInt(range * 2 + 1) - range) + this.position.x,
+                    (rand.nextInt(range * 2 + 1) - range) + this.position.y);
+            lolcat[i] = new Moss(newPoint);
+
+        }
+        return lolcat;
     }
+
+    public String toString() {
+        return "Moss, position [" + position.x + ";" + position.y + "]";
+    }
+
 }

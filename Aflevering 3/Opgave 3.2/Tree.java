@@ -1,32 +1,32 @@
 import java.awt.Point;
 import java.awt.Color;
+import java.util.Random;
 
 public class Tree extends Plant {
 
-    int range;
-    int seed;
+    protected static final int range = PeberholmConstantsAndUtilities.TREE_RANGE;
+    protected static final int seed = PeberholmConstantsAndUtilities.TREE_SEED_NO;
+    protected static final Color col = PeberholmConstantsAndUtilities.TREE_COLOR;
 
-    // public static final Color TREE_COLOR =
-    // PeberholmConstantsAndUtilities.TREE_COLOR;
-    // public static final int TREE_SEED_NO =
-    // PeberholmConstantsAndUtilities.TREE_SEED_NO;
-    // public static final int TREE_RANGE =
-    // PeberholmConstantsAndUtilities.TREE_RANGE;
+    private static Random rand = new Random();
 
     public Tree(Point position) {
-        // super();
-
-        // super(position, TREE_COLOR, TREE_SEED_NO, TREE_RANGE);
-
         this.position = position;
-        this.color = PeberholmConstantsAndUtilities.TREE_COLOR;
-        seed = PeberholmConstantsAndUtilities.TREE_SEED_NO;
-        range = PeberholmConstantsAndUtilities.TREE_RANGE;
+        this.color = col;
     }
 
     public Plant[] spreadSeeds() {
-        Tree[] list = { new Tree(newPosition()) };
-        return list;
+        Plant[] lolcat = new Plant[seed];
+        for (int i = 0; i < seed; i++) {
+            Point newPoint = new Point((rand.nextInt(range * 2 + 1) - range) + this.position.x,
+                    (rand.nextInt(range * 2 + 1) - range) + this.position.y);
+            lolcat[i] = new Tree(newPoint);
+
+        }
+        return lolcat;
     }
 
+    public String toString() {
+        return "Tree, position [" + position.x + ";" + position.y + "]";
+    }
 }
