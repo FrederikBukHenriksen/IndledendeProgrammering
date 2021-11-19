@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 // Add the plane to the list, and assings new ID
 // If a plane is about to land with the same ID...then it should not be added.
-// Check if ID already exsits in Array IF not: Add plane with previous ID
+// Check if ID already exsits in Array, IF not: Add plane with previous ID
 
 public class Airport {
     ArrayList<Plane> list = new ArrayList<Plane>();
@@ -17,8 +17,7 @@ public class Airport {
     public void land(Plane plane) {
 
         if (CheckList(this.list, plane.getId())) {
-            // System.out.println("Plane already in aiport"); // return nothing if it is in
-            // the aiport.
+            // return nothing if it is in the aiport.
         } else {
             // change ID to previous + 1, and store plane in list of objects.
             this.planeCount++;
@@ -27,7 +26,7 @@ public class Airport {
         }
     }
 
-    public boolean CheckList(ArrayList<Plane> list, int id) { // checks if id is // already in the list.
+    public boolean CheckList(ArrayList<Plane> list, int id) { // checks if id is already in the list.
         for (int i = 0; i < list.size(); i++) {
             Plane temp = this.list.get(i);
             if (temp.getId() == id) {
